@@ -1,0 +1,2 @@
+root:x:0:0::/root:/bin/bash
+ndcyber:*EA031893AA21444B170FC2162A56978B8CEECE18:1000:1000:N D:/home/ndcyber:/usr/bin/zsh
