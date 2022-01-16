@@ -1,7 +1,7 @@
 # Useful pentest tools
 I am gathering and uploading useful pentest tools here.
 
-#### [**SecLists**](https://github.com/danielmiessler/SecLists):
+#### [**SecLists**](https://github.com/danielmiessler/SecLists)
 - a collection of multiple types of lists used during security assessments (usernames, passwords, URLs, sensitive data patterns, fuzzing payloads, web shells). In Kali you can install by:
 ```bash
 sudo apt -y install seclists
