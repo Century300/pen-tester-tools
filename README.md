@@ -1,14 +1,14 @@
 # Useful pentest tools
 I am gathering and uploading useful pentest tools here.
 
-#### [**SecLists**](https://github.com/danielmiessler/SecLists)
+### [**SecLists**](https://github.com/danielmiessler/SecLists)
 - a collection of multiple types of lists used during security assessments (usernames, passwords, URLs, sensitive data patterns, fuzzing payloads, web shells). In Kali you can install by:
 ```bash
 sudo apt -y install seclists
 ```
 <br/>
 
-#### [**Hydra**](https://github.com/vanhauser-thc/thc-hydra)
+### [**Hydra**](https://github.com/vanhauser-thc/thc-hydra)
 - brute-force attack (mainly dictionary attack) tool.
 - Install:
 ```bash
@@ -25,7 +25,7 @@ hydra -t 16 -l USERNAME -P <wordList.txt path> -vV <target IP> ssh
 ```
 <br/>
 
-#### [**John the Ripper**](https://github.com/openwall/john)
+### [**John the Ripper**](https://github.com/openwall/john)
 - to guess the system's users' passwords from the hash values (or any common password in any hash value).
 - The "_/etc/shadow_" shows the hash value of the "x" in "_/etc/passwd_". You can crack the hash value by:
 ```bash
@@ -37,5 +37,5 @@ john --wordlist=/usr/share/wordlists/YourWordList.txt --format=sha512crypt unsha
 ```
 <br/>
 
-#### [fuzzdb SQLi platform detection list](https://github.com/fuzzdb-project/fuzzdb/blob/master/attack/sql-injection/detect/xplatform.txt):
+### [fuzzdb SQLi platform detection list](https://github.com/fuzzdb-project/fuzzdb/blob/master/attack/sql-injection/detect/xplatform.txt):
 - (for Burp Suite payload in intruder): brute force attack to get the server response status 200.
