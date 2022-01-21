@@ -6,7 +6,10 @@ I am gathering and uploading useful pentest tools here.
 ```bash
 sudo apt -y install seclists
 ```
-- dirbuster wordlists from [OWASP DirBuster](https://www.kali.org/tools/dirbuster/). Install in arch by _yay -S dirbuster_, follow [this instruction](https://saulenas.com/How-to-install-DirBuster-on-Linux/) in other Linux distros.
+- dirbuster wordlists from [OWASP DirBuster](https://www.kali.org/tools/dirbuster/). Follow [this instruction](https://saulenas.com/How-to-install-DirBuster-on-Linux/) to install in any Linux distros. Install in arch by using AUR (Arch User Repository):
+```
+yay -S dirbuster
+```
 <br/>
 
 ### [**Hydra**](https://github.com/vanhauser-thc/thc-hydra)
