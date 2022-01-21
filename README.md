@@ -1,11 +1,12 @@
 # Useful pentest tools
 I am gathering and uploading useful pentest tools here.
 
-### [**SecLists**](https://github.com/danielmiessler/SecLists)
-- a collection of multiple types of lists used during security assessments (usernames, passwords, URLs, sensitive data patterns, fuzzing payloads, web shells). In Kali you can install by:
+### **Wordlists**
+- [**SecLists**](https://github.com/danielmiessler/SecLists): a collection of multiple types of lists used during security assessments (usernames, passwords, URLs, sensitive data patterns, fuzzing payloads, web shells). In Kali you can install by:
 ```bash
 sudo apt -y install seclists
 ```
+- dirbuster wordlists from [OWASP DirBuster](https://www.kali.org/tools/dirbuster/). Install in arch by _yay -S dirbuster_, follow [this instruction](https://saulenas.com/How-to-install-DirBuster-on-Linux/) in other Linux distros.
 <br/>
 
 ### [**Hydra**](https://github.com/vanhauser-thc/thc-hydra)
@@ -37,5 +38,25 @@ john --wordlist=/usr/share/wordlists/YourWordList.txt --format=sha512crypt unsha
 ```
 <br/>
 
-### [fuzzdb SQLi platform detection list](https://github.com/fuzzdb-project/fuzzdb/blob/master/attack/sql-injection/detect/xplatform.txt):
+### [**fuzzdb** SQLi platform detection list](https://github.com/fuzzdb-project/fuzzdb/blob/master/attack/sql-injection/detect/xplatform.txt)
 - (for Burp Suite payload in intruder): brute force attack to get the server response status 200.
+<br/>
+
+### [**Gobuster**](https://github.com/OJ/gobuster)
+- to brute-force URIs & DNS subdomains beside the [OWASP DirBuster](https://www.kali.org/tools/dirbuster/) tool
+- adding target IP or URL to /etc/hosts if necessary to run gobuster
+```bash
+echo "10.10.200.xxx Target.com subdomain.Target.com" >> /etc/hosts
+
+```
+- brute-force using dirbuster wordlist using 30 concurrent threads (optional flag: -v verbose, -x fileExtensions)
+```bash
+gobuster dir -u https://TargetIP.com -w /usr/share/dirbuster/directory-list-2.3-medium.txt -t30 -o 
+```
+- brute-force using SecLists subdomains to discover virtual hosts, then use dirbuster to find the _flag_ in there
+```bash
+gobuster vhost -u http://TargetWebsite.com -w /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-5000.txt -t30
+
+for vhost in subDomain1 subDomain2 subDomain3; do gobuster dir -u http://${vhost}.TargetWebsite.com -w /usr/share/dirbuster/directory-list-2.3-small.txt -x php,txt -t30 -o Output.txt ; done
+```
+<br/>
