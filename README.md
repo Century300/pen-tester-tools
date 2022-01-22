@@ -69,14 +69,14 @@ for vhost in subDomain1 subDomain2 subDomain3; do gobuster dir -u http://${vhost
 - To install: _sudo apt update && sudo apt install wpscan_ for Debian/Ubuntu or _yay -S wpscan_ for ArchLinux, manually update by _wpscan --update_.
 - Syntaxes to enumerte themes/plugins/userNames and brute-force passwords (flags: -t --max-threads, -o --output, -e --enumerate vpVulnerablePlugins apAllPlugins pPopularPlugins tPopularThemes uUserIDs, -P --passwords, -U --usernames, -v --verbose, --plugins-detection mixed/passsive/aggressive)
 ```bash
-wpscan --url http://<Target URL or IP address>
-wpscan --url http://<Target URL or IP address> --api-token <Generated_Token_from_your_login_profile>
+wpscan --url http(s)://<Target URL or IP address>
+wpscan --url http(s)://<Target URL or IP address> --api-token <Generated_Token_from_your_login_profile>
 
-wpscan --url http://<Target> --enumerate t
-wpscan --url http://<Target> --enumerate p
-wpscan --url http://<Target> --enumerate u
-wpscan --url http://<Target> --enumerate vp
+wpscan --url <Target> --enumerate t
+wpscan --url <Target> --enumerate p
+wpscan --url <Target> --enumerate u
+wpscan --url <Target> --enumerate vp
 
-wpscan --url http://<Target> --usernames <FoundUserNames> --passwords <YourWordList.txt>
+wpscan --url <Target> --usernames <FoundUserNames> --passwords <YourWordList.txt>
 ```
 <br/>
