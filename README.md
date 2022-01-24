@@ -23,9 +23,13 @@ make install
 ```
 <br/>
 
-- Hydra syntax to dictionary-attack on target port 22 SSH.
+- Syntaxes for running 50 tasks in parallel (-t50, default 16)
 ```bash
-hydra -t 16 -l USERNAME -P <wordList.txt path> -vV <target IP> ssh
+# Dictionary-attack on target port 22 SSH.
+hydra -t50 -l <UserName> -P <wordList.txt path> -vV <target IP> ssh
+
+# Dictionalry-attack on a specific pathName
+hydra -t50 -l <UserName> -P /usr/share/wordlists/rockyou.txt <target IP> http-get "/pathName"    
 ```
 <br/>
 
@@ -54,7 +58,7 @@ echo "10.10.200.xxx Target.com subdomain.Target.com" >> /etc/hosts
 ```
 - brute-force using dirbuster wordlist using 30 concurrent threads (optional flag: -v verbose, -x fileExtensions)
 ```bash
-gobuster dir -u https://TargetIP.com -w /usr/share/dirbuster/directory-list-2.3-medium.txt -t30 -o 
+gobuster dir -u https://TargetIP.com -w /usr/share/dirbuster/directory-list-2.3-medium.txt -x php,phtml,css,js,json,html,txt,py,sh -t30
 ```
 - brute-force using SecLists subdomains to discover virtual hosts, then use dirbuster to find the _flag_ in there
 ```bash
@@ -72,11 +76,13 @@ for vhost in subDomain1 subDomain2 subDomain3; do gobuster dir -u http://${vhost
 wpscan --url http(s)://<Target URL or IP address>
 wpscan --url http(s)://<Target URL or IP address> --api-token <Generated_Token_from_your_login_profile>
 
-wpscan --url <Target> --enumerate t
-wpscan --url <Target> --enumerate p
-wpscan --url <Target> --enumerate u
-wpscan --url <Target> --enumerate vp
-
-wpscan --url <Target> --usernames <FoundUserNames> --passwords <YourWordList.txt>
+wpscan --url <Target> --enumerate | tee Enumerate.txt
+wpscan --url <Target> --usernames <FoundUserNames> --passwords <YourWordList.txt> | tee Credentials.txt
 ```
 <br/>
+
+### [**Nikto**](https://github.com/sullo/nikto)
+- Scan web server for known vulnerabilities
+```bash
+nikto -id username:password -h <TARGET_IP>:1234/path/
+```
