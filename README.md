@@ -86,3 +86,4 @@ wpscan --url <Target> --usernames <FoundUserNames> --passwords <YourWordList.txt
 ```bash
 nikto -id username:password -h <TARGET_IP>:1234/path/
 ```
+<br/>
