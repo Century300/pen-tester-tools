@@ -35,7 +35,7 @@ hydra -t50 -l <UserName> -P /usr/share/wordlists/rockyou.txt <target IP> http-ge
 
 ### [**John the Ripper**](https://github.com/openwall/john)
 - to guess the system's users' passwords from the hash values (or any common password in any hash value).
-- The "_/etc/shadow_" shows the hash value of the "x" in "_/etc/passwd_". You can crack the hash value by:
+- The "_/etc/shadow_" shows the hash value of the "x" in "_/etc/passwd_". You can crack the hash value by
 ```bash
 sudo unshadow /etc/passwd /etc/shadow > unshadowed.txt && john unshadowed.txt && john --show unshadowed.txt
 ```
