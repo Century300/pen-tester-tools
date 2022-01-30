@@ -84,6 +84,8 @@ wpscan --url <Target> --usernames <FoundUserNames> --passwords <YourWordList.txt
 ### [**Nikto**](https://github.com/sullo/nikto)
 - Scan web server for known vulnerabilities
 ```bash
-nikto -id username:password -h <TARGET_IP>:1234/path/
+nikto - h <target_IP> -p 80 -o nikto_results -F txt
+
+nikto -id username:password -h <target_IP>:1234/path/
 ```
 <br/>
