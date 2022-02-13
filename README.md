@@ -47,7 +47,7 @@ cat cracked.txt
 <br/>
 
 ### [**John the Ripper**](https://github.com/openwall/john)
-- to guess the system's users' passwords from the hash values (or any common password in any hash value).
+-  advanced offline password cracker, which supports hundreds of hash and cipher types, and runs on many operating systems, CPUs, GPUs, and even some FPGAs.
 ```bash
 # crack a MD5 hash using default wordlist
 echo ecbdb882ae865a07d87611437fda0772 > hashValue.txt && john --format=raw-MD5 hashValue.txt
