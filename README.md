@@ -48,12 +48,15 @@ cat cracked.txt
 
 ### [**John the Ripper**](https://github.com/openwall/john)
 - to guess the system's users' passwords from the hash values (or any common password in any hash value).
-- The "_/etc/shadow_" shows the hash value of the "x" in "_/etc/passwd_". You can crack the hash value by
 ```bash
+# crack a MD5 hash using default wordlist
+echo ecbdb882ae865a07d87611437fda0772 > hashValue.txt && john --format=raw-MD5 hashValue.txt && john --show --format=raw-MD5 hashValue.txt
+# or using your custom wordlist
+echo 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8 > hashValue.txt && john --wordlist=/usr/share/wordlists/rockyou.txt --format=raw-MD5 hashValue.txt && john --show --format=raw-MD5 hashValue.txt
+
+# The "_/etc/shadow_" shows the hash value of the "x" in "_/etc/passwd_". You can crack the hash value by
 sudo unshadow /etc/passwd /etc/shadow > unshadowed.txt && john unshadowed.txt && john --show unshadowed.txt
-```
-- Or you can use YourWordList.txt
-```bash
+# Or you can use YourWordList.txt
 john --wordlist=/usr/share/wordlists/YourWordList.txt --format=sha512crypt unshadowed.txt
 ```
 <br/>
