@@ -38,9 +38,11 @@ hydra -t50 -l <UserName> -P /usr/share/wordlists/rockyou.txt <target IP> http-ge
 ```bash
 # crack a MD5 hash 
 hashcat -m 0 -a 0 008c5926ca861023c1d2a36653fd88e2 /usr/share/wordlists/rockyou.txt
+hashcat -m 0 -a 0 008c5926ca861023c1d2a36653fd88e2 /usr/share/wordlists/rockyou.txt --show
 
 # crack MD5 hahes from a list and output to cracked.txt
 hashcat -m 0 -a 0 -o cracked.txt target_hashes.txt /usr/share/wordlists/rockyou.txt
+cat cracked.txt
 ```
 <br/>
 
