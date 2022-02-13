@@ -33,6 +33,17 @@ hydra -t50 -l <UserName> -P /usr/share/wordlists/rockyou.txt <target IP> http-ge
 ```
 <br/>
 
+### [**Hashcat**](https://github.com/hashcat/hashcat)
+- hashcat currently supports CPUs, GPUs, and other hardware accelerators on Linux, Windows, and macOS
+```bash
+# crack a MD5 hash 
+hashcat -m 0 -a 0 008c5926ca861023c1d2a36653fd88e2 /usr/share/wordlists/rockyou.txt
+
+# crack MD5 hahes from a list and output to cracked.txt
+hashcat -m 0 -a 0 -o cracked.txt target_hashes.txt /usr/share/wordlists/rockyou.txt
+```
+<br/>
+
 ### [**John the Ripper**](https://github.com/openwall/john)
 - to guess the system's users' passwords from the hash values (or any common password in any hash value).
 - The "_/etc/shadow_" shows the hash value of the "x" in "_/etc/passwd_". You can crack the hash value by
